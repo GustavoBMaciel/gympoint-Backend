@@ -7,7 +7,7 @@ class RegistrationMail {
     return 'RegistrationMail';
   }
 
-  async handle({ data }){
+  async handle({ data }) {
     const { registrationEmail } = data;
 
     await Mail.sendMail({
@@ -18,14 +18,22 @@ class RegistrationMail {
         student: registrationEmail.student.name,
         title: registrationEmail.plan.title,
         price: registrationEmail.plan.price,
-        date_start: format(parseISO(registrationEmail.start_date)," 'dia' dd 'de' MMMM', às' H:mm'h' ",{
-          locale: pt,
-        }),
-        date_end: format(parseISO(registrationEmail.end_date), " 'dia' dd 'de' MMMM', às' H:mm'h' ",{
-          locale: pt,
-        }),
-      }
-    })
+        date_start: format(
+          parseISO(registrationEmail.start_date),
+          " 'dia' dd 'de' MMMM', às' H:mm'h' ",
+          {
+            locale: pt,
+          }
+        ),
+        date_end: format(
+          parseISO(registrationEmail.end_date),
+          " 'dia' dd 'de' MMMM', às' H:mm'h' ",
+          {
+            locale: pt,
+          }
+        ),
+      },
+    });
   }
 }
 

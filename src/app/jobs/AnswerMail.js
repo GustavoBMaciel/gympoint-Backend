@@ -15,11 +15,10 @@ class AnswerMail {
       context: {
         student: answerMail.student.name,
         question: answerMail.question,
-        answer: answerMail.question
-      }
-    })
+        answer: answerMail.question,
+      },
+    });
   }
-
 }
 
 export default new AnswerMail();

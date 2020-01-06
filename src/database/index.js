@@ -9,20 +9,19 @@ import HelpOrder from '../app/models/HelpOrder';
 
 import databaseConfig from '../config/database';
 
-
-
 const models = [Student, User, Plan, Registration, Checkin, HelpOrder];
 
 class Database {
   constructor() {
     this.init();
   }
+
   init() {
-    this.connection =  new Sequelize(databaseConfig);
+    this.connection = new Sequelize(databaseConfig);
 
     models
-    .map(model => model.init(this.connection))
-    .map(model => model.associate && model.associate(this.connection.models))
+      .map(model => model.init(this.connection))
+      .map(model => model.associate && model.associate(this.connection.models));
   }
 }
 

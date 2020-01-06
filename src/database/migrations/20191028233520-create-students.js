@@ -26,7 +26,7 @@ module.exports = {
       },
       height: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -39,7 +39,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable('students');
-  }
+  },
 };

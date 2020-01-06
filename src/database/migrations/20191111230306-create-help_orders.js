@@ -5,7 +5,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
       question: {
         type: Sequelize.STRING,
@@ -24,7 +24,7 @@ module.exports = {
         references: { model: 'students', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-        allowNull: true
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -37,7 +37,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable('help_orders');
-  }
+  },
 };

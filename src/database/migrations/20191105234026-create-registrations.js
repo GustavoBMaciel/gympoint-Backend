@@ -5,33 +5,33 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
       start_date: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
       end_date: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
       price: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: false,
       },
       student_id: {
         type: Sequelize.INTEGER,
         references: { model: 'students', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-        allowNull: true
+        allowNull: true,
       },
       plan_id: {
         type: Sequelize.INTEGER,
         references: { model: 'plans', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-        allowNull: true
+        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -44,7 +44,7 @@ module.exports = {
     });
   },
 
-  down: (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable('registrations');
-  }
+  },
 };
